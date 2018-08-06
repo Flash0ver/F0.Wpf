@@ -38,8 +38,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Diagnostics\BindingSource.cs" />
+    <Compile Include="Diagnostics\DataBindingTraceListenerTests.cs" />
+    <Compile Include="Diagnostics\DataContext.cs" />
+    <Compile Include="Primitives\ScopeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

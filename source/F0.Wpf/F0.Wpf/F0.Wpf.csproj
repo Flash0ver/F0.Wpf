@@ -46,6 +46,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Diagnostics\DataBindingException.cs" />
+    <Compile Include="Diagnostics\DataBindingTraceListener.cs" />
+    <Compile Include="Primitives\Scope.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
