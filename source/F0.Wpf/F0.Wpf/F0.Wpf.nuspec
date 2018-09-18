@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/Flash0ver/F0.Wpf/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/Flash0ver/F0.Wpf</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/Flash0ver/F0/master/Branding/NuGet/F0.Wpf.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Initial upload providing a TraceListener for the data-binding TraceSource.</releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>f[0] f0 wpf</tags>
+  </metadata>
+</package>
