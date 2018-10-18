@@ -23,6 +23,11 @@ indent_style = tab
 #indent_size = 4
 max_line_length = 130
 
+[*.xaml]
+charset = utf-8-bom
+indent_style = tab
+#indent_size = 4
+
 [*.{cs,vb}]
 dotnet_style_qualification_for_field = false:suggestion
 dotnet_style_qualification_for_property = false:suggestion
