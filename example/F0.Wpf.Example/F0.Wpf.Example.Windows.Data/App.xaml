@@ -1,0 +1,11 @@
+﻿<Application
+	x:Class="F0.Wpf.Example.Windows.Data.App"
+	x:ClassModifier="internal"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:F0.Wpf.Example.Windows.Data"
+	StartupUri="MainWindow.xaml">
+
+	<Application.Resources>
+	</Application.Resources>
+</Application>
