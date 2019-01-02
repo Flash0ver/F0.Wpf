@@ -4,27 +4,26 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using F0.Diagnostics;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace F0.Tests.Diagnostics
 {
-	[TestClass]
 	public class DataBindingTraceListenerTests
 	{
-		[TestMethod]
+		[Fact]
 		public void HandlerMustNotBeNull()
 		{
-			Assert.ThrowsException<ArgumentNullException>(() => new DataBindingTraceListener(null));
+			Assert.Throws<ArgumentNullException>(() => new DataBindingTraceListener(null));
 		}
 
-		[TestMethod]
+		[Fact]
 		public void CreateWithName()
 		{
 			var traceListener = new DataBindingTraceListener(_ => { });
-			Assert.AreEqual("DataBindingTraceListener", traceListener.Name);
+			Assert.Equal("DataBindingTraceListener", traceListener.Name);
 		}
 
-		[TestMethod]
+		[Fact]
 		public void MessageIsBuiltOnFlushAndIsBasedOnDataPassedViaTraceEvent()
 		{
 			string actualMessage = null;
@@ -35,12 +34,12 @@ namespace F0.Tests.Diagnostics
 
 			traceListener.TraceEvent(null, "Source", TraceEventType.Verbose, 1, "Format-{0}-{1}", "Argument0", "Argument1");
 
-			Assert.IsNull(actualMessage);
+			Assert.Null(actualMessage);
 			traceListener.Flush();
-			Assert.AreEqual(expectedMessage, actualMessage);
+			Assert.Equal(expectedMessage, actualMessage);
 		}
 
-		[TestMethod]
+		[Fact]
 		public void TraceEventOnSourceCallsTraceEventOfListener_WhichCallsWriteViaWriteHeaderAndWriteLineOfListener()
 		{
 			string actualMessage = null;
@@ -51,13 +50,13 @@ namespace F0.Tests.Diagnostics
 
 				PresentationTraceSources.DataBindingSource.TraceEvent(TraceEventType.Error, 2, "Format", new object[0]);
 
-				Assert.IsNull(actualMessage);
+				Assert.Null(actualMessage);
 				PresentationTraceSources.DataBindingSource.Flush();
-				Assert.AreEqual(expectedMessage, actualMessage);
+				Assert.Equal(expectedMessage, actualMessage);
 			}
 		}
 
-		[TestMethod]
+		[Fact]
 		public void BeginningTheScopeAddsTheListenerToTheSource_EndingTheScopeRemovesTheListenerFromTheSource()
 		{
 			CheckThatSourceDoesNotContainTheListener();
@@ -72,12 +71,12 @@ namespace F0.Tests.Diagnostics
 
 			void CheckThatSourceDoesNotContainTheListener()
 			{
-				Assert.IsNull(PresentationTraceSources.DataBindingSource.Listeners[nameof(DataBindingTraceListener)]);
+				Assert.Null(PresentationTraceSources.DataBindingSource.Listeners[nameof(DataBindingTraceListener)]);
 			}
 
 			void CheckThatSourceContainsTheListener()
 			{
-				Assert.IsInstanceOfType(PresentationTraceSources.DataBindingSource.Listeners[nameof(DataBindingTraceListener)], typeof(DataBindingTraceListener));
+				Assert.IsType<DataBindingTraceListener>(PresentationTraceSources.DataBindingSource.Listeners[nameof(DataBindingTraceListener)]);
 			}
 
 			void Handle(string message)
@@ -86,7 +85,7 @@ namespace F0.Tests.Diagnostics
 			}
 		}
 
-		[TestMethod]
+		[Fact]
 		public void AdjustSourceLevelsOfSourceSwitchWithinScope()
 		{
 			CheckThatLevelIsUnmodified();
@@ -101,12 +100,12 @@ namespace F0.Tests.Diagnostics
 
 			void CheckThatLevelIsUnmodified()
 			{
-				Assert.AreNotEqual(SourceLevels.Error, PresentationTraceSources.DataBindingSource.Switch.Level);
+				Assert.NotEqual(SourceLevels.Error, PresentationTraceSources.DataBindingSource.Switch.Level);
 			}
 
 			void CheckThatLevelIsAdjusted()
 			{
-				Assert.AreEqual(SourceLevels.Error, PresentationTraceSources.DataBindingSource.Switch.Level);
+				Assert.Equal(SourceLevels.Error, PresentationTraceSources.DataBindingSource.Switch.Level);
 			}
 
 			void Handle(string message)
@@ -115,8 +114,7 @@ namespace F0.Tests.Diagnostics
 			}
 		}
 
-		[TestMethod]
-		[DoNotParallelize]
+		[WpfFact]
 		public void ThrowIfBindingPathOnDataContextOfElementNotFound()
 		{
 			using (DataBindingTraceListener.BeginScope())
@@ -135,20 +133,19 @@ namespace F0.Tests.Diagnostics
 				var validBinding = new Binding(nameof(DataContext.DataContextProperty));
 				var invalidBinding = new Binding("PropertyNotFound");
 
-				Assert.AreEqual("240", textBlock.Text);
+				Assert.Equal("240", textBlock.Text);
 				textBlock.SetBinding(TextBlock.TextProperty, validBinding);
-				Assert.AreEqual("DataContext.DataContextProperty", textBlock.Text);
+				Assert.Equal("DataContext.DataContextProperty", textBlock.Text);
 
 				string expectedMessage = GetMessage("PropertyNotFound", dataContext, textBlock, TextBlock.TextProperty);
 
-				Exception exception = Assert.ThrowsException<DataBindingException>(() => textBlock.SetBinding(TextBlock.TextProperty, invalidBinding));
-				Assert.AreEqual(expectedMessage, exception.Message);
-				Assert.AreNotEqual("DataContext.DataContextProperty", textBlock.Text);
+				Exception exception = Assert.Throws<DataBindingException>(() => textBlock.SetBinding(TextBlock.TextProperty, invalidBinding));
+				Assert.Equal(expectedMessage, exception.Message);
+				Assert.NotEqual("DataContext.DataContextProperty", textBlock.Text);
 			}
 		}
 
-		[TestMethod]
-		[DoNotParallelize]
+		[WpfFact]
 		public void ThrowIfBindingPathOnSourceOfBindingNotFound()
 		{
 			using (DataBindingTraceListener.BeginScope())
@@ -172,15 +169,15 @@ namespace F0.Tests.Diagnostics
 					Source = bindingSource
 				};
 
-				Assert.AreEqual("240", textBlock.Text);
+				Assert.Equal("240", textBlock.Text);
 				textBlock.SetBinding(TextBlock.TextProperty, validBinding);
-				Assert.AreEqual("BindingSource.BindingSourceProperty", textBlock.Text);
+				Assert.Equal("BindingSource.BindingSourceProperty", textBlock.Text);
 
 				string expectedMessage = GetMessage("PropertyNotFound", bindingSource, textBlock, TextBlock.TextProperty);
 
-				Exception exception = Assert.ThrowsException<DataBindingException>(() => textBlock.SetBinding(TextBlock.TextProperty, invalidBinding));
-				Assert.AreEqual(expectedMessage, exception.Message);
-				Assert.AreNotEqual("BindingSource.BindingSourceProperty", textBlock.Text);
+				Exception exception = Assert.Throws<DataBindingException>(() => textBlock.SetBinding(TextBlock.TextProperty, invalidBinding));
+				Assert.Equal(expectedMessage, exception.Message);
+				Assert.NotEqual("BindingSource.BindingSourceProperty", textBlock.Text);
 			}
 		}
 

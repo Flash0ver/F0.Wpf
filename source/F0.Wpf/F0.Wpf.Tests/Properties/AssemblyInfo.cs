@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 [assembly: AssemblyTitle("F0.Wpf.Tests")]
 [assembly: AssemblyDescription("")]
@@ -19,4 +19,4 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: Parallelize(Workers = 0, Scope = ExecutionScope.ClassLevel)]
+[assembly: CollectionBehavior(CollectionBehavior.CollectionPerClass)]

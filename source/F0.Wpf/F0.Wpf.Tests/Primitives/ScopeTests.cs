@@ -1,50 +1,49 @@
 ﻿using System;
 using F0.Primitives;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace F0.Tests.Primitives
 {
-	[TestClass]
 	public class ScopeTests
 	{
-		[TestMethod]
+		[Fact]
 		public void HandlerOfStatelessScopeMustNotBeNull()
 		{
-			Assert.ThrowsException<ArgumentNullException>(() => new Scope(null));
+			Assert.Throws<ArgumentNullException>(() => new Scope(null));
 		}
 
-		[TestMethod]
+		[Fact]
 		public void HandlerOfStatefulScopeMustNotBeNull()
 		{
-			Assert.ThrowsException<ArgumentNullException>(() => new Scope<string>(String.Empty, null));
+			Assert.Throws<ArgumentNullException>(() => new Scope<string>(String.Empty, null));
 		}
 
-		[TestMethod]
+		[Fact]
 		public void StateOfStatefulScopeMustNotBeNull()
 		{
-			Assert.ThrowsException<ArgumentNullException>(() => new Scope<string>(null, _ => { }));
+			Assert.Throws<ArgumentNullException>(() => new Scope<string>(null, _ => { }));
 		}
 
-		[TestMethod]
+		[Fact]
 		public void StatelessScopeIsAnIDisposableThatEndsTheLogicalOperationScopeOnDispose()
 		{
 			bool isDisposed = false;
 			IDisposable scope = new Scope(() => isDisposed = true);
 
-			Assert.IsFalse(isDisposed);
+			Assert.False(isDisposed);
 			scope.Dispose();
-			Assert.IsTrue(isDisposed);
+			Assert.True(isDisposed);
 		}
 
-		[TestMethod]
+		[Fact]
 		public void StatefulScopeIsAnIDisposableThatEndsTheLogicalOperationScopeOnDispose()
 		{
 			string state = "notDisposed";
 			IDisposable scope = new Scope<string>("disposed", s => state = s);
 
-			Assert.AreEqual("notDisposed", state);
+			Assert.Equal("notDisposed", state);
 			scope.Dispose();
-			Assert.AreEqual("disposed", state);
+			Assert.Equal("disposed", state);
 		}
 	}
 }
