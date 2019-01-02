@@ -7,7 +7,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("F0.Wpf.Example.Diagnostics")]
-[assembly: AssemblyCopyright("Copyright © f[0] 2018")]
+[assembly: AssemblyCopyright("Copyright © f[0] 2018-2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
