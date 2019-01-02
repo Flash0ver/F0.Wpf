@@ -210,7 +210,6 @@ namespace F0.Tests.Diagnostics
 
 			return $"BindingExpression path error: '{path}' property not found on 'object' ''{sourceName}' (HashCode={hashCode})'." +
 				$" BindingExpression:Path={path}; DataItem='{sourceName}' (HashCode={hashCode}); target element is '{targetName}' (Name='{targetElement.Name}'); target property is '{targetProperty.Name}' (type '{targetProperty.PropertyType.Name}')";
-
 		}
 	}
 }

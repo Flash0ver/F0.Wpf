@@ -35,10 +35,10 @@ namespace F0.Tests.Windows.Data
 			var converter = new CompositeValueConverter();
 
 			ContentPropertyAttribute attribute = converter.GetType().GetCustomAttribute<ContentPropertyAttribute>();
-			Assert.Equal(attribute.Name, nameof(converter.Converters));
+			Assert.Equal(nameof(converter.Converters), attribute.Name);
 
 			Assert.NotNull(converter.Converters);
-			Assert.Equal(0, converter.Converters.Count);
+			Assert.Empty(converter.Converters);
 		}
 
 		[Fact]
