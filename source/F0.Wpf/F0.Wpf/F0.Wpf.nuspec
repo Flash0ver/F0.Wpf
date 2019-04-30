@@ -12,7 +12,7 @@
     <iconUrl>https://raw.githubusercontent.com/Flash0ver/F0/master/Branding/NuGet/F0.Wpf.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Added XAML builder for pipelines of value converters.</releaseNotes>
+    <releaseNotes>Changed target framework to .NET Framework 4.7.2.</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>f[0] f0 wpf</tags>
   </metadata>
