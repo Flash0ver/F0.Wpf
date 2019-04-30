@@ -6,7 +6,7 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <licenseUrl>https://github.com/Flash0ver/F0.Wpf/blob/master/LICENSE</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/Flash0ver/F0.Wpf</projectUrl>
     <repository type="git" url="https://github.com/Flash0ver/F0.Wpf.git" />
     <iconUrl>https://raw.githubusercontent.com/Flash0ver/F0/master/Branding/NuGet/F0.Wpf.png</iconUrl>
