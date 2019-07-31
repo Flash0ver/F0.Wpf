@@ -2,6 +2,7 @@
 CHANGELOG
 
 ## vNext
+- Added `IsVisible` attached property, targeting `System.Windows.UIElement`, complying with behavior of `System.Windows.Controls.BooleanToVisibilityConverter`.
 
 ## v0.3.0 (2019-04-30)
 - Changed target framework from `.NET Framework 4.5.2` to `.NET Framework 4.7.2`.
