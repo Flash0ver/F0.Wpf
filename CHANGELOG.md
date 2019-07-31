@@ -2,6 +2,8 @@
 CHANGELOG
 
 ## vNext
+
+## v0.4.0 (2019-07-31)
 - Added `IsVisible` attached property, targeting `System.Windows.UIElement`, complying with behavior of `System.Windows.Controls.BooleanToVisibilityConverter`.
 
 ## v0.3.0 (2019-04-30)
