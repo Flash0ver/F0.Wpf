@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{059B7302-EF95-40CE-9F2F-7AD5DBC1465F}</ProjectGuid>
+    <ProjectGuid>{EB71DE47-D6FE-407D-A244-BFAC0782B4FA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>F0.Wpf.Example.Windows</RootNamespace>
-    <AssemblyName>F0.Wpf.Example.Windows</AssemblyName>
+    <RootNamespace>F0.Wpf.Example.Diagnostics</RootNamespace>
+    <AssemblyName>F0.Wpf.Example.Diagnostics</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -48,6 +48,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BindingSource.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -61,6 +66,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -94,8 +103,8 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\source\F0.Wpf\F0.Wpf\F0.Wpf.csproj">
-      <Project>{0bdcec6d-c480-4e21-b2ae-37f5593a2e83}</Project>
+    <ProjectReference Include="..\..\production\F0.Wpf\F0.Wpf.csproj">
+      <Project>{0BDCEC6D-C480-4E21-B2AE-37F5593A2E83}</Project>
       <Name>F0.Wpf</Name>
     </ProjectReference>
   </ItemGroup>

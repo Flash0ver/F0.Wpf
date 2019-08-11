@@ -55,7 +55,7 @@
     <Compile Include="Windows\UIElementVisibilityTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\F0.Wpf\F0.Wpf.csproj">
+    <ProjectReference Include="..\..\production\F0.Wpf\F0.Wpf.csproj">
       <Project>{0bdcec6d-c480-4e21-b2ae-37f5593a2e83}</Project>
       <Name>F0.Wpf</Name>
     </ProjectReference>

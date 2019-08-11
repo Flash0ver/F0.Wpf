@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E99197FF-94A8-4D09-A17E-F82F1E31E446}</ProjectGuid>
+    <ProjectGuid>{059B7302-EF95-40CE-9F2F-7AD5DBC1465F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>F0.Wpf.Example.Windows.Data</RootNamespace>
-    <AssemblyName>F0.Wpf.Example.Windows.Data</AssemblyName>
+    <RootNamespace>F0.Wpf.Example.Windows</RootNamespace>
+    <AssemblyName>F0.Wpf.Example.Windows</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -48,7 +48,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ValueConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -90,15 +89,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\source\F0.Wpf\F0.Wpf\F0.Wpf.csproj">
-      <Project>{0BDCEC6D-C480-4E21-B2AE-37F5593A2E83}</Project>
-      <Name>F0.Wpf</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="F0.Mvvm">
       <Version>0.1.0</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\production\F0.Wpf\F0.Wpf.csproj">
+      <Project>{0bdcec6d-c480-4e21-b2ae-37f5593a2e83}</Project>
+      <Name>F0.Wpf</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
