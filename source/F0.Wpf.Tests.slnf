@@ -1,0 +1,9 @@
+{
+  "solution": {
+    "path": "F0.Wpf.sln",
+    "projects": [
+      "production\\F0.Wpf\\F0.Wpf.csproj",
+      "test\\F0.Wpf.Tests\\F0.Wpf.Tests.csproj"
+    ]
+  }
+}

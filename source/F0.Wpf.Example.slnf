@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "path": "F0.Wpf.sln",
+    "projects": [
+      "example\\F0.Wpf.Example.Diagnostics\\F0.Wpf.Example.Diagnostics.csproj",
+      "example\\F0.Wpf.Example.Windows.Data\\F0.Wpf.Example.Windows.Data.csproj",
+      "example\\F0.Wpf.Example.Windows\\F0.Wpf.Example.Windows.csproj",
+      "production\\F0.Wpf\\F0.Wpf.csproj"
+    ]
+  }
+}
