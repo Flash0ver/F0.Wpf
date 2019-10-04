@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4C85B215-D570-4DB5-B5A8-2CC11EF174F8}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F0.Wpf", "production\F0.Wpf\F0.Wpf.csproj", "{0BDCEC6D-C480-4E21-B2AE-37F5593A2E83}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{CCE0E84F-F865-4DB6-B249-08CA98E20509}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F0.Wpf.Tests", "test\F0.Wpf.Tests\F0.Wpf.Tests.csproj", "{F89E67D5-AD98-4B45-94C5-B4C2FEAE303A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{3ADFE9A4-77BA-4706-B8F0-E882FB418AC8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F0.Wpf.Example.Diagnostics", "example\F0.Wpf.Example.Diagnostics\F0.Wpf.Example.Diagnostics.csproj", "{EB71DE47-D6FE-407D-A244-BFAC0782B4FA}"
 EndProject
@@ -42,6 +48,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0BDCEC6D-C480-4E21-B2AE-37F5593A2E83} = {4C85B215-D570-4DB5-B5A8-2CC11EF174F8}
+		{F89E67D5-AD98-4B45-94C5-B4C2FEAE303A} = {CCE0E84F-F865-4DB6-B249-08CA98E20509}
+		{EB71DE47-D6FE-407D-A244-BFAC0782B4FA} = {3ADFE9A4-77BA-4706-B8F0-E882FB418AC8}
+		{E99197FF-94A8-4D09-A17E-F82F1E31E446} = {3ADFE9A4-77BA-4706-B8F0-E882FB418AC8}
+		{059B7302-EF95-40CE-9F2F-7AD5DBC1465F} = {3ADFE9A4-77BA-4706-B8F0-E882FB418AC8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {60B738F0-FDD2-4742-8A72-5B650AA9AD6A}
