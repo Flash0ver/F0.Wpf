@@ -10,14 +10,14 @@ namespace F0.Wpf.Example.Windows
 		public bool? IsVisible
 		{
 			get => isVisible;
-			set => SetField(ref isVisible, value);
+			set => SetProperty(ref isVisible, value);
 		}
 
 		private Visibility visibility;
 		public Visibility Visibility
 		{
 			get => visibility;
-			set => SetField(ref visibility, value);
+			set => SetProperty(ref visibility, value);
 		}
 
 		public Uri IconUrl { get; }

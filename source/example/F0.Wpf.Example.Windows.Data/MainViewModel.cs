@@ -8,14 +8,14 @@ namespace F0.Wpf.Example.Windows.Data
 		public string ConvertText
 		{
 			get => convertText;
-			set => SetField(ref convertText, value);
+			set => SetProperty(ref convertText, value);
 		}
 
 		private string convertBackText;
 		public string ConvertBackText
 		{
 			get => convertBackText;
-			set => SetField(ref convertBackText, value);
+			set => SetProperty(ref convertBackText, value);
 		}
 
 		public MainViewModel()

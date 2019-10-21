@@ -14,14 +14,14 @@ namespace F0.Wpf.Example.Diagnostics
 		public object Content
 		{
 			get => content;
-			private set => SetField(ref content, value);
+			private set => SetProperty(ref content, value);
 		}
 
 		private string log;
 		public string Log
 		{
 			get => log;
-			private set => SetField(ref log, value);
+			private set => SetProperty(ref log, value);
 		}
 
 		private readonly IDisposable traceScope;
