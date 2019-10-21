@@ -49,7 +49,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BindingSource.cs" />
-    <Compile Include="Command.cs" />
     <Compile Include="View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>

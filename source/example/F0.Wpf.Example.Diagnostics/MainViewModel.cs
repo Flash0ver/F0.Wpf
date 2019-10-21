@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using F0.ComponentModel;
 using F0.Diagnostics;
+using F0.Windows.Input;
 
 namespace F0.Wpf.Example.Diagnostics
 {
@@ -32,10 +33,10 @@ namespace F0.Wpf.Example.Diagnostics
 
 			Commands = new ObservableCollection<BindingSource>()
 			{
-				new BindingSource("Path and Property name match", new Command(() => Content = new View(new { Property = "Value" }))),
-				new BindingSource("DataContext not set", new Command(() => Content = new View())),
-				new BindingSource("DataContext set to null", new Command(() => Content = new View(null))),
-				new BindingSource("Path and Property name mismatch", new Command(() => Content = new View(new { Message = "Hello World!" })))
+				new BindingSource("Path and Property name match", Command.Create(() => Content = new View(new { Property = "Value" }))),
+				new BindingSource("DataContext not set", Command.Create(() => Content = new View())),
+				new BindingSource("DataContext set to null", Command.Create(() => Content = new View(null))),
+				new BindingSource("Path and Property name mismatch", Command.Create(() => Content = new View(new { Message = "Hello World!" })))
 			};
 		}
 
