@@ -8,7 +8,7 @@ using System.Windows.Markup;
 namespace F0.Windows.Data
 {
 	[ContentProperty(nameof(Converters))]
-	public class CompositeValueConverter : IValueConverter
+	public sealed class CompositeValueConverter : IValueConverter
 	{
 		public Collection<IValueConverter> Converters { get; }
 

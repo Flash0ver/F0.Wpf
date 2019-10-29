@@ -14,7 +14,7 @@
 		<local:MainViewModel />
 	</Window.DataContext>
 	<Window.Resources>
-		<f0:CompositeValueConverter x:Key="converter">
+		<f0:CompositeValueConverter x:Key="CompositeConverter">
 			<local:FirstValueConverter />
 			<local:LastValueConverter />
 		</f0:CompositeValueConverter>
@@ -26,14 +26,14 @@
 				Text="{Binding Path=ConvertText, UpdateSourceTrigger=PropertyChanged}" />
 			<CheckBox
 				Content="Is even?" IsEnabled="False"
-				IsChecked="{Binding Path=ConvertText, Converter={StaticResource converter}}" />
+				IsChecked="{Binding Path=ConvertText, Converter={StaticResource CompositeConverter}}" />
 
 			<Separator Margin="10, 20, 10, 20" />
 
 			<Slider
 				Minimum="0.0" Maximum="240.0"
 				TickPlacement="BottomRight" TickFrequency="10.0" IsSnapToTickEnabled="False"
-				Value="{Binding Path=ConvertBackText, Converter={StaticResource converter}, Mode=OneWayToSource}" />
+				Value="{Binding Path=ConvertBackText, Converter={StaticResource CompositeConverter}, Mode=OneWayToSource}" />
 			<TextBlock
 				Text="{Binding Path=ConvertBackText}" />
 		</StackPanel>
