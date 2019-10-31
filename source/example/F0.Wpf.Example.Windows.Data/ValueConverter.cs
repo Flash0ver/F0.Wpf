@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Data;
 
 namespace F0.Wpf.Example.Windows.Data
@@ -59,6 +61,26 @@ namespace F0.Wpf.Example.Windows.Data
 			{
 				throw new NotSupportedException();
 			}
+		}
+	}
+
+	internal class NameToInitialConverter : IValueConverter
+	{
+		object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
+		{
+			string name = value as string;
+			string[] nameParts = name.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+			IEnumerable<char> initials = nameParts.Select(n => n.First());
+			string initial = String.Join("", initials);
+			return initial;
+		}
+
+		object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+		{
+			string initial = value as string;
+			char[] initials = initial.ToCharArray();
+			string name = String.Join(". ", initials) + ".";
+			return name;
 		}
 	}
 }

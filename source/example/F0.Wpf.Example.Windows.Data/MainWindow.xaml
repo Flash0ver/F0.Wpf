@@ -18,6 +18,10 @@
 			<local:FirstValueConverter />
 			<local:LastValueConverter />
 		</f0:CompositeValueConverter>
+		<local:NameToInitialConverter x:Key="ForwardConverter" />
+		<f0:InverseValueConverter x:Key="InverseConverter">
+			<local:NameToInitialConverter />
+		</f0:InverseValueConverter>
 	</Window.Resources>
 
 	<Grid>
@@ -36,6 +40,18 @@
 				Value="{Binding Path=ConvertBackText, Converter={StaticResource CompositeConverter}, Mode=OneWayToSource}" />
 			<TextBlock
 				Text="{Binding Path=ConvertBackText}" />
+
+			<Separator Margin="10, 20, 10, 20" />
+
+			<TextBox
+				Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" />
+			<TextBlock
+				Text="{Binding Path=Name, Converter={StaticResource ForwardConverter}}" />
+
+			<TextBox
+				Text="{Binding Path=Initials, UpdateSourceTrigger=PropertyChanged}" />
+			<TextBlock
+				Text="{Binding Path=Initials, Converter={StaticResource InverseConverter}}" />
 		</StackPanel>
 	</Grid>
 </Window>

@@ -18,10 +18,27 @@ namespace F0.Wpf.Example.Windows.Data
 			set => SetProperty(ref convertBackText, value);
 		}
 
+		private string name;
+		public string Name
+		{
+			get => name;
+			set => SetProperty(ref name, value);
+		}
+
+		private string initials;
+		public string Initials
+		{
+			get { return initials; }
+			set { SetProperty(ref initials, value); }
+		}
+
+
 		public MainViewModel()
 		{
 			convertText = "240";
 			convertBackText = "240";
+			name = "Stefan Pölz";
+			initials = "SP";
 		}
 	}
 }

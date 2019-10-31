@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Reflection;
 using System.Windows.Data;
 using System.Windows.Markup;
+using F0.Tests.Shared;
 using F0.Windows.Data;
 using Xunit;
 
@@ -21,6 +22,8 @@ namespace F0.Tests.Windows.Data
 
 			PropertyInfo contentProperty = type.GetProperty(attribute.Name);
 			Assert.NotNull(contentProperty);
+			Assert.NotNull(contentProperty.GetGetMethod());
+			Assert.Null(contentProperty.GetSetMethod());
 
 			TypeInfo typeInfo = contentProperty.PropertyType.GetTypeInfo();
 			Assert.False(typeInfo.IsInterface);
@@ -30,7 +33,7 @@ namespace F0.Tests.Windows.Data
 		}
 
 		[Fact]
-		public void CompositeConverter_Create_EmptyContent()
+		public void CompositeConverter_CreateDefault_ContentIsEmpty()
 		{
 			var converter = new CompositeValueConverter();
 
@@ -42,9 +45,21 @@ namespace F0.Tests.Windows.Data
 		}
 
 		[Fact]
+		public void CompositeConverter_CreateDefault_PassThrough()
+		{
+			IValueConverter converter = new CompositeValueConverter();
+
+			object convertValue = converter.Convert(nameof(IValueConverter.Convert), GetType(), default, CultureInfo.InvariantCulture);
+			Assert.Equal("Convert", convertValue);
+
+			object convertBackValue = converter.ConvertBack(nameof(IValueConverter.ConvertBack), GetType(), default, CultureInfo.InvariantCulture);
+			Assert.Equal("ConvertBack", convertBackValue);
+		}
+
+		[Fact]
 		public void CompositeConverter_Convert_InnerConvertersAreCombinedInOrder_AsPipelineChain()
 		{
-			IValueConverter converter = CreateComposite();
+			IValueConverter converter = CreateCompositeConverter();
 			object text = converter.Convert("initial", GetType(), 0, CultureInfo.InvariantCulture);
 
 			string target = nameof(CompositeValueConverterTests);
@@ -54,42 +69,20 @@ namespace F0.Tests.Windows.Data
 		[Fact]
 		public void CompositeConverter_ConvertBack_InnerConvertersAreCombinedInInverseOrder_AsPipelineChain()
 		{
-			IValueConverter converter = CreateComposite();
+			IValueConverter converter = CreateCompositeConverter();
 			object text = converter.ConvertBack("initial", GetType(), 1, CultureInfo.InvariantCulture);
 
 			string target = nameof(CompositeValueConverterTests);
 			Assert.Equal($"initial+LAST.{target}.1.{0x7F}+FIRST.{target}.1.{0x7F}", text);
 		}
 
-		private static IValueConverter CreateComposite()
+		private static IValueConverter CreateCompositeConverter()
 		{
 			var composite = new CompositeValueConverter();
-			composite.Converters.Add(new ValueConverter("FIRST"));
-			composite.Converters.Add(new ValueConverter("LAST"));
+			composite.Converters.Add(new TestValueConverter("FIRST"));
+			composite.Converters.Add(new TestValueConverter("LAST"));
 
 			return composite;
-		}
-	}
-
-	internal class ValueConverter : IValueConverter
-	{
-		internal string Text { get; }
-
-		internal ValueConverter(string text)
-		{
-			Text = text;
-		}
-
-		object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
-		{
-			string text = value as string;
-			return text + $"-{Text}.{targetType.Name}.{parameter}.{culture.LCID}";
-		}
-
-		object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-		{
-			string text = value as string;
-			return text + $"+{Text}.{targetType.Name}.{parameter}.{culture.LCID}";
 		}
 	}
 }

@@ -2,6 +2,7 @@
 CHANGELOG
 
 ## vNext
+- Added `Windows.Data.InverseValueConverter` inverting calls to a `System.Windows.Data.IValueConverter`.
 
 ## v0.4.0 (2019-07-31)
 - Added `IsVisible` attached property, targeting `System.Windows.UIElement`, complying with behavior of `System.Windows.Controls.BooleanToVisibilityConverter`.
