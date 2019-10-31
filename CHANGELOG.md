@@ -2,6 +2,8 @@
 CHANGELOG
 
 ## vNext
+
+## v0.5.0 (2019-10-31)
 - Added `Windows.Data.InverseValueConverter` inverting calls to a `System.Windows.Data.IValueConverter`.
 
 ## v0.4.0 (2019-07-31)
