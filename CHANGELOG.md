@@ -2,6 +2,7 @@
 CHANGELOG
 
 ## vNext
+- Added target framework: `.NET Core 3.1`.
 
 ## v0.5.0 (2019-10-31)
 - Added `Windows.Data.InverseValueConverter` inverting calls to a `System.Windows.Data.IValueConverter`.
