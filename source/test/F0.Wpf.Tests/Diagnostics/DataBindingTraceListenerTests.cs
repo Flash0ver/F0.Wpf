@@ -19,7 +19,7 @@ namespace F0.Tests.Diagnostics
 		[Fact]
 		public void CreateWithName()
 		{
-			var traceListener = new DataBindingTraceListener(_ => { });
+			using TraceListener traceListener = new DataBindingTraceListener(_ => { });
 			Assert.Equal("DataBindingTraceListener", traceListener.Name);
 		}
 
@@ -27,7 +27,7 @@ namespace F0.Tests.Diagnostics
 		public void MessageIsBuiltOnFlushAndIsBasedOnDataPassedViaTraceEvent()
 		{
 			string actualMessage = null;
-			TraceListener traceListener = new DataBindingTraceListener(m => actualMessage = m);
+			using TraceListener traceListener = new DataBindingTraceListener(m => actualMessage = m);
 
 			string header = "Source Verbose: 1 : ";
 			string expectedMessage = header + "Format-Argument0-Argument1" + Environment.NewLine;
@@ -69,17 +69,17 @@ namespace F0.Tests.Diagnostics
 			defaultScope.Dispose();
 			CheckThatSourceDoesNotContainTheListener();
 
-			void CheckThatSourceDoesNotContainTheListener()
+			static void CheckThatSourceDoesNotContainTheListener()
 			{
 				Assert.Null(PresentationTraceSources.DataBindingSource.Listeners[nameof(DataBindingTraceListener)]);
 			}
 
-			void CheckThatSourceContainsTheListener()
+			static void CheckThatSourceContainsTheListener()
 			{
 				Assert.IsType<DataBindingTraceListener>(PresentationTraceSources.DataBindingSource.Listeners[nameof(DataBindingTraceListener)]);
 			}
 
-			void Handle(string message)
+			static void Handle(string message)
 			{
 				//no-op
 			}
@@ -98,17 +98,17 @@ namespace F0.Tests.Diagnostics
 			customScope.Dispose();
 			CheckThatLevelIsUnmodified();
 
-			void CheckThatLevelIsUnmodified()
+			static void CheckThatLevelIsUnmodified()
 			{
 				Assert.NotEqual(SourceLevels.Error, PresentationTraceSources.DataBindingSource.Switch.Level);
 			}
 
-			void CheckThatLevelIsAdjusted()
+			static void CheckThatLevelIsAdjusted()
 			{
 				Assert.Equal(SourceLevels.Error, PresentationTraceSources.DataBindingSource.Switch.Level);
 			}
 
-			void Handle(string message)
+			static void Handle(string message)
 			{
 				//no-op
 			}

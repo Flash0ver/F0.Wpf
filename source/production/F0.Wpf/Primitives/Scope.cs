@@ -24,12 +24,7 @@ namespace F0.Primitives
 
 		public Scope(TState state, Action<TState> onDispose)
 		{
-			if (state == null)
-			{
-				throw new ArgumentNullException(nameof(state));
-			}
-
-			this.state = state;
+			this.state = state ?? throw new ArgumentNullException(nameof(state));
 			this.onDispose = onDispose ?? throw new ArgumentNullException(nameof(onDispose));
 		}
 
