@@ -24,7 +24,7 @@ namespace F0.Diagnostics
 				PresentationTraceSources.DataBindingSource.Switch.Level = SourceLevels.Error;
 			}
 
-			PresentationTraceSources.DataBindingSource.Listeners.Add(traceListener);
+			_ = PresentationTraceSources.DataBindingSource.Listeners.Add(traceListener);
 			return new Scope<TraceListener>(traceListener, EndScope);
 		}
 
@@ -41,7 +41,7 @@ namespace F0.Diagnostics
 
 		private static bool ContainsNone()
 		{
-			return PresentationTraceSources.DataBindingSource.Listeners[nameof(DataBindingTraceListener)] == null;
+			return PresentationTraceSources.DataBindingSource.Listeners[nameof(DataBindingTraceListener)] is null;
 		}
 
 		static DataBindingTraceListener()
@@ -63,12 +63,12 @@ namespace F0.Diagnostics
 
 		public override void Write(string message)
 		{
-			messageBuffer.Append(message);
+			_ = messageBuffer.Append(message);
 		}
 
 		public override void WriteLine(string message)
 		{
-			messageBuffer.AppendLine(message);
+			_ = messageBuffer.AppendLine(message);
 		}
 
 		public override void Flush()
@@ -76,7 +76,7 @@ namespace F0.Diagnostics
 			base.Flush();
 
 			string message = messageBuffer.ToString();
-			messageBuffer.Clear();
+			_ = messageBuffer.Clear();
 
 			onFlush(message);
 		}

@@ -28,8 +28,8 @@ namespace F0.Wpf.Example.Windows.Data
 		private string initials;
 		public string Initials
 		{
-			get { return initials; }
-			set { SetProperty(ref initials, value); }
+			get => initials;
+			set => SetProperty(ref initials, value);
 		}
 
 
