@@ -48,7 +48,7 @@ namespace F0.Tests.Diagnostics
 				string header = "System.Windows.Data Error: 2 : ";
 				string expectedMessage = header + "Format" + Environment.NewLine;
 
-				PresentationTraceSources.DataBindingSource.TraceEvent(TraceEventType.Error, 2, "Format", new object[0]);
+				PresentationTraceSources.DataBindingSource.TraceEvent(TraceEventType.Error, 2, "Format", Array.Empty<object>());
 
 				Assert.Null(actualMessage);
 				PresentationTraceSources.DataBindingSource.Flush();
