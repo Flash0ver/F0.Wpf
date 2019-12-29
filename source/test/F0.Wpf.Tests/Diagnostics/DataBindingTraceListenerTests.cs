@@ -13,7 +13,7 @@ namespace F0.Tests.Diagnostics
 		[Fact]
 		public void HandlerMustNotBeNull()
 		{
-			Assert.Throws<ArgumentNullException>(() => new DataBindingTraceListener(null));
+			Assert.Throws<ArgumentNullException>("onFlush", () => new DataBindingTraceListener(null));
 		}
 
 		[Fact]
