@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using F0.Diagnostics;
+using F0.Tests.Shared;
 using Xunit;
 
 namespace F0.Tests.Diagnostics

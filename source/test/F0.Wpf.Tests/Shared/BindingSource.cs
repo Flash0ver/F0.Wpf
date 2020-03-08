@@ -1,4 +1,4 @@
-﻿namespace F0.Tests.Diagnostics
+﻿namespace F0.Tests.Shared
 {
 	internal class BindingSource
 	{
