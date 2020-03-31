@@ -32,6 +32,19 @@ namespace F0.Wpf.Example.Windows.Data
 			set => SetProperty(ref initials, value);
 		}
 
+		private bool? boolean;
+		public bool? Boolean
+		{
+			get => boolean;
+			set => SetProperty(ref boolean, value);
+		}
+
+		private int number;
+		public int Number
+		{
+			get => number;
+			set => SetProperty(ref number, value);
+		}
 
 		public MainViewModel()
 		{
@@ -39,6 +52,8 @@ namespace F0.Wpf.Example.Windows.Data
 			convertBackText = "240";
 			name = "Stefan Pölz";
 			initials = "SP";
+			boolean = null;
+			number = 0;
 		}
 	}
 }

@@ -22,6 +22,8 @@
 		<f0:InverseValueConverter x:Key="InverseConverter">
 			<local:NameToInitialConverter />
 		</f0:InverseValueConverter>
+		<f0:LogicalNegationConverter x:Key="LogicalNegationConverter" />
+		<f0:NumericNegationConverter x:Key="NumericNegationConverter" />
 	</Window.Resources>
 
 	<Grid>
@@ -52,6 +54,28 @@
 				Text="{Binding Path=Initials, UpdateSourceTrigger=PropertyChanged}" />
 			<TextBlock
 				Text="{Binding Path=Initials, Converter={StaticResource InverseConverter}}" />
+
+			<Separator Margin="10, 20, 10, 20" />
+
+			<StackPanel Orientation="Horizontal">
+				<CheckBox
+					Content="negated boolean = " IsEnabled="True"
+					IsThreeState="True"
+					IsChecked="{Binding Path=Boolean}" />
+				
+				<CheckBox
+					Content="{Binding Path=IsChecked, RelativeSource={RelativeSource Self}}" IsEnabled="False"
+					IsChecked="{Binding Path=Boolean, Converter={StaticResource LogicalNegationConverter}}" />
+			</StackPanel>
+
+			<Slider
+				Minimum="-240.0" Maximum="240.0"
+				TickPlacement="BottomRight" TickFrequency="10.0" IsSnapToTickEnabled="False"
+				Value="{Binding Path=Number}" />
+			<TextBlock
+				Text="{Binding Path=Number, StringFormat=source value: {0}}" />
+			<TextBlock
+				Text="{Binding Path=Number, StringFormat=negated value: {0}, Converter={StaticResource NumericNegationConverter}}" />
 		</StackPanel>
 	</Grid>
 </Window>

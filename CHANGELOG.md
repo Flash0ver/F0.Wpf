@@ -2,6 +2,8 @@
 CHANGELOG
 
 ## vNext
+- Added `Windows.Data.LogicalNegationConverter`, a value converter that applies NOT operator to a boolean value.
+- Added `Windows.Data.NumericNegationConverter`, converting integral and floating-point numeric values to its negation.
 
 ## v0.6.0 (2019-12-31)
 - Added target framework: `.NET Core 3.1`.
