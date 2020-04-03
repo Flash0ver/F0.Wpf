@@ -11,7 +11,7 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageId>F0.Wpf</PackageId>
-    <Version>0.6.0</Version>
+    <Version>0.7.0</Version>
     <Authors>Flash0ver</Authors>
     <Company>f[0]</Company>
     <Product>F0.Wpf</Product>
@@ -23,7 +23,7 @@
     <RepositoryUrl>https://github.com/Flash0ver/F0.Wpf.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>f[0] f0 wpf</PackageTags>
-    <PackageReleaseNotes>Added target framework: .NET Core 3.1.</PackageReleaseNotes>
+    <PackageReleaseNotes>Added converters for both logical and numeric negation.</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>

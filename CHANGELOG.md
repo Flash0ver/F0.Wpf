@@ -2,6 +2,8 @@
 CHANGELOG
 
 ## vNext
+
+## v0.7.0 (2020-04-03)
 - Added `Windows.Data.LogicalNegationConverter`, a value converter that applies NOT operator to a boolean value.
 - Added `Windows.Data.NumericNegationConverter`, converting integral and floating-point numeric values to its negation.
 
