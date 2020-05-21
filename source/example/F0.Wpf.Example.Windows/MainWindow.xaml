@@ -15,7 +15,7 @@
 	</Window.DataContext>
 
 	<Grid>
-		<StackPanel>
+		<StackPanel Orientation="Vertical">
 			<CheckBox
 				IsThreeState="True"
 				IsChecked="{Binding Path=IsVisible}"

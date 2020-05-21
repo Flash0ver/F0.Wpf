@@ -27,7 +27,7 @@
 	</Window.Resources>
 
 	<Grid>
-		<StackPanel>
+		<StackPanel Orientation="Vertical">
 			<TextBox
 				Text="{Binding Path=ConvertText, UpdateSourceTrigger=PropertyChanged}" />
 			<CheckBox
