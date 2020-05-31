@@ -11,3 +11,7 @@ This repo contains .NET helpers to simplify common developer tasks building Wind
 [DotNetApis](http://dotnetapis.com/pkg/F0.Wpf)\
 [NuGet Must Haves](https://nugetmusthaves.com/Package/F0.Wpf)\
 [NuGet Trends](https://nugettrends.com/packages?months=12&ids=F0.Wpf)
+
+## Other external links
+[Libraries.io Packages](https://libraries.io/nuget/F0.Wpf)\
+[Libraries.io Repositories](https://libraries.io/github/Flash0ver/F0.Wpf)
