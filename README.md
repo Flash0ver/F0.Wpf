@@ -1,6 +1,8 @@
 # F0.Wpf
 This repo contains .NET helpers to simplify common developer tasks building Windows Presentation Foundation (WPF) applications and (custom) control libraries.
 
+![F0.Wpf](https://raw.githubusercontent.com/Flash0ver/F0/master/Branding/GitHub/F0.Wpf.png)
+
 [![F0.Wpf on fuget.org](https://www.fuget.org/packages/F0.Wpf/badge.svg)](https://www.fuget.org/packages/F0.Wpf)
 
 ## NuGet
