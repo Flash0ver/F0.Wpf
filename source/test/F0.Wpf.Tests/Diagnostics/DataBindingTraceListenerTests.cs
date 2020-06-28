@@ -115,6 +115,17 @@ namespace F0.Tests.Diagnostics
 			}
 		}
 
+		[Fact]
+		public void EndingTheScopeDisposesTheListener()
+		{
+			var traceListener = new TestTraceListener();
+			IDisposable scope = DataBindingTraceListener.BeginScope(traceListener);
+
+			Assert.Equal(0, traceListener.DisposeCount);
+			scope.Dispose();
+			Assert.Equal(1, traceListener.DisposeCount);
+		}
+
 		[WpfFact]
 		public void ThrowIfBindingPathOnDataContextOfElementNotFound()
 		{

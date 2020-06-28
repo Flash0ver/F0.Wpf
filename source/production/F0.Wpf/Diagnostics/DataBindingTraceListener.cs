@@ -17,7 +17,7 @@ namespace F0.Diagnostics
 			return BeginScope(new DataBindingTraceListener(onFlush));
 		}
 
-		private static IDisposable BeginScope(TraceListener traceListener)
+		internal static IDisposable BeginScope(TraceListener traceListener)
 		{
 			if (ContainsNone())
 			{
