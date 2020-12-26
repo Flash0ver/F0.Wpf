@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Windows;
 
 [assembly: AssemblyDescription("F0.Wpf code sample.")]

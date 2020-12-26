@@ -1,4 +1,4 @@
-﻿<Application
+<Application
 	x:Class="F0.Wpf.Example.Diagnostics.App"
 	x:ClassModifier="internal"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

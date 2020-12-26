@@ -1,4 +1,4 @@
-﻿using F0.ComponentModel;
+using F0.ComponentModel;
 
 namespace F0.Wpf.Example.Windows.Data
 {

@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 
 namespace F0.Wpf.Example.Diagnostics
 {

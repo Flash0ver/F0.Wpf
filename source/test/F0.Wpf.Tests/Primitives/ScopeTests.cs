@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using F0.Primitives;
 using Xunit;
 

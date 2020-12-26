@@ -8,7 +8,7 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 
 [*.sln]
-charset = utf-8-bom
+charset = utf-8
 indent_style = tab
 #indent_size = 4
 
@@ -18,13 +18,13 @@ indent_style = space
 indent_size = 2
 
 [*.{cs,csx,vb,vbx}]
-charset = utf-8-bom
+charset = utf-8
 indent_style = tab
 #indent_size = 4
 max_line_length = 130
 
 [*.xaml]
-charset = utf-8-bom
+charset = utf-8
 indent_style = tab
 #indent_size = 4
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Data;
 using F0.Tests.Shared;
 using F0.Windows.Data;
