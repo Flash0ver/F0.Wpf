@@ -20,10 +20,19 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Flash0ver/F0.Wpf</PackageProjectUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/Flash0ver/F0/master/Branding/NuGet/F0.Wpf.png</PackageIconUrl>
+    <PackageIcon>Icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/Flash0ver/F0.Wpf.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>f[0] f0 wpf</PackageTags>
     <PackageReleaseNotes>Added converters for both logical and numeric negation.</PackageReleaseNotes>
   </PropertyGroup>
+
+  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+    <None Include="..\..\..\resources\F0.Wpf-Preview.png" Pack="true" PackagePath="Icon.png" Visible="false" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Configuration)' == 'Release'">
+    <None Include="..\..\..\resources\F0.Wpf.png" Pack="true" PackagePath="Icon.png" Visible="false" />
+  </ItemGroup>
 
 </Project>

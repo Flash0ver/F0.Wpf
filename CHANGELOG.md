@@ -2,6 +2,7 @@
 CHANGELOG
 
 ## vNext
+- Package: Embed icon (fixed _NuGet Warning NU5048_), keep fallback icon URL.
 
 ## v0.7.0 (2020-04-03)
 - Added `Windows.Data.LogicalNegationConverter`, a value converter that applies NOT operator to a boolean value.
@@ -18,6 +19,7 @@ CHANGELOG
 
 ## v0.3.0 (2019-04-30)
 - Changed target framework from `.NET Framework 4.5.2` to `.NET Framework 4.7.2`.
+- Package: Use license expression instead of deprecated license URL (fixed _NuGet Warning NU5125_).
 
 ## v0.2.0 (2018-12-21)
 - Added `Windows.Data.CompositeValueConverter` chaining multiple `System.Windows.Data.IValueConverter`.
