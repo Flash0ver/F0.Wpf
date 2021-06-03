@@ -48,7 +48,7 @@ namespace F0.Wpf.Example.Windows.Data
 		{
 			return value is int integer
 				? integer % 2 == 0
-				: (object)null;
+				: null;
 		}
 
 		object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -70,7 +70,7 @@ namespace F0.Wpf.Example.Windows.Data
 		{
 			string name = value as string;
 			string[] nameParts = name.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-			IEnumerable<char> initials = nameParts.Select(n => n.First());
+			IEnumerable<char> initials = nameParts.Select(static n => n.First());
 			string initial = String.Join("", initials);
 			return initial;
 		}

@@ -25,13 +25,13 @@
 			<TextBlock
 				Text="{Binding Path=Visibility, StringFormat='Visibility: {0}'}" />
 			<Image
-				Width="64"
-				Height="64"
+				Width="128"
+				Height="128"
 				f0:UIElementVisibility.IsVisible="{Binding Path=IsVisible}" Visibility="{Binding Path=Visibility, Mode=OneWayToSource}">
 				<Image.Source>
 					<BitmapImage
-						DecodePixelWidth="64"
-						DecodePixelHeight="64"
+						DecodePixelWidth="128"
+						DecodePixelHeight="128"
 						UriSource="{Binding Path=IconUrl}" />
 				</Image.Source>
 			</Image>

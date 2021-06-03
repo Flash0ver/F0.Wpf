@@ -25,7 +25,7 @@ namespace F0.Wpf.Example.Windows
 		public MainViewModel()
 		{
 			IsVisible = true;
-			IconUrl = new Uri("https://raw.githubusercontent.com/Flash0ver/F0/master/Branding/NuGet/F0.Wpf.png");
+			IconUrl = new Uri("https://raw.githubusercontent.com/Flash0ver/F0.Wpf/master/resources/F0.Wpf.png");
 		}
 	}
 }

@@ -5,7 +5,7 @@ namespace F0.Tests.Shared
 {
 	internal sealed class TestTypeConverter : TypeConverter
 	{
-		private static readonly TestTypeConverter typeConverter = new TestTypeConverter();
+		private static readonly TestTypeConverter typeConverter = new();
 
 		internal static string CreateConvertFromException(Type converterType, object sourceValue)
 		{

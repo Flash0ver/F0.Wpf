@@ -118,7 +118,7 @@ namespace F0.Tests.Diagnostics
 		[Fact]
 		public void EndingTheScopeDisposesTheListener()
 		{
-			var traceListener = new TestTraceListener();
+			TestTraceListener traceListener = new();
 			IDisposable scope = DataBindingTraceListener.BeginScope(traceListener);
 
 			Assert.Equal(0, traceListener.DisposeCount);
@@ -135,15 +135,15 @@ namespace F0.Tests.Diagnostics
 
 				object dataContext = new DataContext();
 
-				var textBlock = new TextBlock
+				TextBlock textBlock = new()
 				{
 					Name = "MyTextBlock",
 					Text = "240",
 					DataContext = dataContext
 				};
 
-				var validBinding = new Binding(nameof(DataContext.DataContextProperty));
-				var invalidBinding = new Binding("PropertyNotFound");
+				Binding validBinding = new(nameof(DataContext.DataContextProperty));
+				Binding invalidBinding = new("PropertyNotFound");
 
 				Assert.Equal("240", textBlock.Text);
 				textBlock.SetBinding(TextBlock.TextProperty, validBinding);
@@ -166,17 +166,17 @@ namespace F0.Tests.Diagnostics
 
 				object bindingSource = new BindingSource();
 
-				var textBlock = new TextBlock
+				TextBlock textBlock = new()
 				{
 					Name = "MyTextBlock",
 					Text = "240"
 				};
 
-				var validBinding = new Binding(nameof(BindingSource.BindingSourceProperty))
+				Binding validBinding = new(nameof(BindingSource.BindingSourceProperty))
 				{
 					Source = bindingSource
 				};
-				var invalidBinding = new Binding("PropertyNotFound")
+				Binding invalidBinding = new("PropertyNotFound")
 				{
 					Source = bindingSource
 				};

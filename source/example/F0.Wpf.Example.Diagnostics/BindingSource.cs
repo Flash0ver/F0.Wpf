@@ -9,8 +9,7 @@ namespace F0.Wpf.Example.Diagnostics
 
 		internal BindingSource(string caption, ICommand command)
 		{
-			Caption = caption;
-			Command = command;
+			(Caption, Command) = (caption, command);
 		}
 	}
 }

@@ -58,7 +58,7 @@ namespace F0.Tests.Windows
 		[Fact]
 		public void CheckAttachedProperty_IsVisible_PropertyChangedCallback()
 		{
-			var uiElement = new UIElement();
+			UIElement uiElement = new();
 			IValueConverter converter = new BooleanToVisibilityConverter();
 
 			Assert.Null(UIElementVisibility.GetIsVisible(uiElement));
@@ -85,8 +85,8 @@ namespace F0.Tests.Windows
 			DependencyProperty attachedProperty = UIElementVisibility.IsVisibleProperty;
 			PropertyChangedCallback propertyChangedCallback = attachedProperty.DefaultMetadata.PropertyChangedCallback;
 
-			var obj = new DependencyObject();
-			var eventArgs = new DependencyPropertyChangedEventArgs();
+			DependencyObject obj = new();
+			DependencyPropertyChangedEventArgs eventArgs = new();
 
 			Assert.Throws<ArgumentException>("d", () => propertyChangedCallback(obj, eventArgs));
 		}

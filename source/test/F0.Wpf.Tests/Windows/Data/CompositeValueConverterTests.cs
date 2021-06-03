@@ -35,7 +35,7 @@ namespace F0.Tests.Windows.Data
 		[Fact]
 		public void CompositeConverter_CreateDefault_ContentIsEmpty()
 		{
-			var converter = new CompositeValueConverter();
+			CompositeValueConverter converter = new();
 
 			ContentPropertyAttribute attribute = converter.GetType().GetCustomAttribute<ContentPropertyAttribute>();
 			Assert.Equal(nameof(converter.Converters), attribute.Name);
@@ -78,7 +78,7 @@ namespace F0.Tests.Windows.Data
 
 		private static IValueConverter CreateCompositeConverter()
 		{
-			var composite = new CompositeValueConverter();
+			CompositeValueConverter composite = new();
 			composite.Converters.Add(new TestValueConverter("FIRST"));
 			composite.Converters.Add(new TestValueConverter("LAST"));
 

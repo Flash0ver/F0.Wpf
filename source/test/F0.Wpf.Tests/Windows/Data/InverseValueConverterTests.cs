@@ -32,7 +32,7 @@ namespace F0.Tests.Windows.Data
 		[Fact]
 		public void InverseConverter_CreateDefault_ContentIsNull()
 		{
-			var converter = new InverseValueConverter();
+			InverseValueConverter converter = new();
 
 			ContentPropertyAttribute attribute = converter.GetType().GetCustomAttribute<ContentPropertyAttribute>();
 			Assert.Equal(nameof(converter.Converter), attribute.Name);
@@ -74,7 +74,7 @@ namespace F0.Tests.Windows.Data
 
 		private static IValueConverter CreateInverseConverter()
 		{
-			var inverse = new InverseValueConverter
+			InverseValueConverter inverse = new()
 			{
 				Converter = new TestValueConverter()
 			};

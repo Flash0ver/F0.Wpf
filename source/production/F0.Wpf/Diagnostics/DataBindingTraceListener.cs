@@ -9,7 +9,7 @@ namespace F0.Diagnostics
 	{
 		public static IDisposable BeginScope()
 		{
-			return BeginScope(new DataBindingTraceListener(m => throw new DataBindingException(m)));
+			return BeginScope(new DataBindingTraceListener(static m => throw new DataBindingException(m)));
 		}
 
 		public static IDisposable BeginScope(Action<string> onFlush)
@@ -52,7 +52,7 @@ namespace F0.Diagnostics
 
 		private static readonly SourceLevels initialLevel;
 
-		private readonly StringBuilder messageBuffer = new StringBuilder();
+		private readonly StringBuilder messageBuffer = new();
 		private readonly Action<string> onFlush;
 
 		internal DataBindingTraceListener(Action<string> onFlush)
