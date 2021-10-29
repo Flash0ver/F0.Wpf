@@ -16,11 +16,11 @@ namespace F0.Tests.Windows.Data
 		{
 			Type type = typeof(InverseValueConverter);
 
-			ContentPropertyAttribute attribute = type.GetCustomAttribute<ContentPropertyAttribute>();
+			ContentPropertyAttribute? attribute = type.GetCustomAttribute<ContentPropertyAttribute>();
 			Assert.NotNull(attribute);
 			Assert.NotNull(attribute.Name);
 
-			PropertyInfo contentProperty = type.GetProperty(attribute.Name);
+			PropertyInfo? contentProperty = type.GetProperty(attribute.Name);
 			Assert.NotNull(contentProperty);
 			Assert.NotNull(contentProperty.GetGetMethod());
 			Assert.NotNull(contentProperty.GetSetMethod());
@@ -34,7 +34,8 @@ namespace F0.Tests.Windows.Data
 		{
 			InverseValueConverter converter = new();
 
-			ContentPropertyAttribute attribute = converter.GetType().GetCustomAttribute<ContentPropertyAttribute>();
+			ContentPropertyAttribute? attribute = converter.GetType().GetCustomAttribute<ContentPropertyAttribute>();
+			Assert.NotNull(attribute);
 			Assert.Equal(nameof(converter.Converter), attribute.Name);
 
 			Assert.Null(converter.Converter);

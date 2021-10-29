@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Windows;
 
 namespace F0.Wpf.Example.Diagnostics
@@ -12,7 +13,8 @@ namespace F0.Wpf.Example.Diagnostics
 
 		protected override void OnClosed(EventArgs e)
 		{
-			(DataContext as IDisposable).Dispose();
+			Debug.Assert(DataContext is MainViewModel);
+			(DataContext as IDisposable)!.Dispose();
 
 			base.OnClosed(e);
 		}

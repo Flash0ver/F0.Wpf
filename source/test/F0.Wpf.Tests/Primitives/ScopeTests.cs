@@ -9,19 +9,19 @@ namespace F0.Tests.Primitives
 		[Fact]
 		public void HandlerOfStatelessScopeMustNotBeNull()
 		{
-			Assert.Throws<ArgumentNullException>("onDispose", () => new Scope(null));
+			Assert.Throws<ArgumentNullException>("onDispose", () => new Scope(null!));
 		}
 
 		[Fact]
 		public void HandlerOfStatefulScopeMustNotBeNull()
 		{
-			Assert.Throws<ArgumentNullException>("onDispose", () => new Scope<string>(String.Empty, null));
+			Assert.Throws<ArgumentNullException>("onDispose", () => new Scope<string>(String.Empty, null!));
 		}
 
 		[Fact]
 		public void StateOfStatefulScopeMustNotBeNull()
 		{
-			Assert.Throws<ArgumentNullException>("state", () => new Scope<string>(null, _ => { }));
+			Assert.Throws<ArgumentNullException>("state", () => new Scope<string>(null!, _ => { }));
 		}
 
 		[Fact]

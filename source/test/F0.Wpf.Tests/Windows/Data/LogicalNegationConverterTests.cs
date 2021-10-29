@@ -72,7 +72,7 @@ namespace F0.Tests.Windows.Data
 		public void ConvertNull_ReturnsNull()
 		{
 			IValueConverter converter = new LogicalNegationConverter();
-			object value = null;
+			object? value = null;
 
 			object fromSourceToTarget = converter.Convert(value, default, default, default);
 			object fromTargetToSource = converter.ConvertBack(value, default, default, default);

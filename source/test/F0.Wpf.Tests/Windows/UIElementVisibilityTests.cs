@@ -25,7 +25,8 @@ namespace F0.Tests.Windows
 		public void CheckAttachedProperty_IsVisible_GetAccessor()
 		{
 			BindingFlags bindingAttr = BindingFlags.Static | BindingFlags.Public;
-			MethodInfo get = typeof(UIElementVisibility).GetMethod(nameof(UIElementVisibility.GetIsVisible), bindingAttr);
+			MethodInfo? get = typeof(UIElementVisibility).GetMethod(nameof(UIElementVisibility.GetIsVisible), bindingAttr);
+			Assert.NotNull(get);
 			ParameterInfo[] parameters = get.GetParameters();
 			ParameterInfo target = parameters[0];
 
@@ -41,7 +42,8 @@ namespace F0.Tests.Windows
 		public void CheckAttachedProperty_IsVisible_SetAccessor()
 		{
 			BindingFlags bindingAttr = BindingFlags.Static | BindingFlags.Public;
-			MethodInfo set = typeof(UIElementVisibility).GetMethod(nameof(UIElementVisibility.SetIsVisible), bindingAttr);
+			MethodInfo? set = typeof(UIElementVisibility).GetMethod(nameof(UIElementVisibility.SetIsVisible), bindingAttr);
+			Assert.NotNull(set);
 			ParameterInfo[] parameters = set.GetParameters();
 			ParameterInfo target = parameters[0];
 			ParameterInfo value = parameters[1];

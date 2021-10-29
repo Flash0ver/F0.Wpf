@@ -61,12 +61,12 @@ namespace F0.Diagnostics
 			this.onFlush = onFlush ?? throw new ArgumentNullException(nameof(onFlush));
 		}
 
-		public override void Write(string message)
+		public override void Write(string? message)
 		{
 			_ = messageBuffer.Append(message);
 		}
 
-		public override void WriteLine(string message)
+		public override void WriteLine(string? message)
 		{
 			_ = messageBuffer.AppendLine(message);
 		}

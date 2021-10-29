@@ -16,11 +16,11 @@ namespace F0.Tests.Windows.Data
 		{
 			Type type = typeof(CompositeValueConverter);
 
-			ContentPropertyAttribute attribute = type.GetCustomAttribute<ContentPropertyAttribute>();
+			ContentPropertyAttribute? attribute = type.GetCustomAttribute<ContentPropertyAttribute>();
 			Assert.NotNull(attribute);
 			Assert.NotNull(attribute.Name);
 
-			PropertyInfo contentProperty = type.GetProperty(attribute.Name);
+			PropertyInfo? contentProperty = type.GetProperty(attribute.Name);
 			Assert.NotNull(contentProperty);
 			Assert.NotNull(contentProperty.GetGetMethod());
 			Assert.Null(contentProperty.GetSetMethod());
@@ -37,7 +37,8 @@ namespace F0.Tests.Windows.Data
 		{
 			CompositeValueConverter converter = new();
 
-			ContentPropertyAttribute attribute = converter.GetType().GetCustomAttribute<ContentPropertyAttribute>();
+			ContentPropertyAttribute? attribute = converter.GetType().GetCustomAttribute<ContentPropertyAttribute>();
+			Assert.NotNull(attribute);
 			Assert.Equal(nameof(converter.Converters), attribute.Name);
 
 			Assert.NotNull(converter.Converters);

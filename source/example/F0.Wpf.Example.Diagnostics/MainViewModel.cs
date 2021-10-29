@@ -38,6 +38,9 @@ namespace F0.Wpf.Example.Diagnostics
 				new BindingSource("DataContext set to null", Command.Create(() => Content = new View(null))),
 				new BindingSource("Path and Property name mismatch", Command.Create(() => Content = new View(new { Message = "Hello World!" })))
 			};
+
+			content = null!;
+			log = null!;
 		}
 
 		private void OnTraceEvent(string message)

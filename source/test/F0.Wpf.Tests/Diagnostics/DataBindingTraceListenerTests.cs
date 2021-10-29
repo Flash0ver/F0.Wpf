@@ -14,7 +14,7 @@ namespace F0.Tests.Diagnostics
 		[Fact]
 		public void HandlerMustNotBeNull()
 		{
-			Assert.Throws<ArgumentNullException>("onFlush", () => new DataBindingTraceListener(null));
+			Assert.Throws<ArgumentNullException>("onFlush", () => new DataBindingTraceListener(null!));
 		}
 
 		[Fact]
@@ -27,7 +27,7 @@ namespace F0.Tests.Diagnostics
 		[Fact]
 		public void MessageIsBuiltOnFlushAndIsBasedOnDataPassedViaTraceEvent()
 		{
-			string actualMessage = null;
+			string? actualMessage = null;
 			using TraceListener traceListener = new DataBindingTraceListener(m => actualMessage = m);
 
 			string header = "Source Verbose: 1 : ";
@@ -43,7 +43,7 @@ namespace F0.Tests.Diagnostics
 		[Fact]
 		public void TraceEventOnSourceCallsTraceEventOfListener_WhichCallsWriteViaWriteHeaderAndWriteLineOfListener()
 		{
-			string actualMessage = null;
+			string? actualMessage = null;
 			using (DataBindingTraceListener.BeginScope(m => actualMessage = m))
 			{
 				string header = "System.Windows.Data Error: 2 : ";

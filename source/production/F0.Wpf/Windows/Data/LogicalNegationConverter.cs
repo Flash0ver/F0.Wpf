@@ -10,17 +10,17 @@ namespace F0.Windows.Data
 		{
 		}
 
-		object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
+		object? IValueConverter.Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
 		{
 			return Negate(value);
 		}
 
-		object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+		object? IValueConverter.ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
 		{
 			return Negate(value);
 		}
 
-		private static object Negate(object value)
+		private static object? Negate(object? value)
 		{
 			if (value is null)
 			{

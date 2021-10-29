@@ -9,7 +9,7 @@ namespace F0.Wpf.Example.Diagnostics
 			InitializeComponent();
 		}
 
-		public View(object bindingContext)
+		public View(object? bindingContext)
 			: this()
 		{
 			DataContext = bindingContext;

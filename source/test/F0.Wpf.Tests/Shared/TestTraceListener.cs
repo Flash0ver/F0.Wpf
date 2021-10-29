@@ -12,12 +12,12 @@ namespace F0.Tests.Shared
 
 		internal int DisposeCount { get; private set; }
 
-		public override void Write(string message)
+		public override void Write(string? message)
 		{
 			throw new NotImplementedException();
 		}
 
-		public override void WriteLine(string message)
+		public override void WriteLine(string? message)
 		{
 			throw new NotImplementedException();
 		}

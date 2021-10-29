@@ -3,6 +3,7 @@ CHANGELOG
 
 ## vNext
 - Added target framework: `.NET 5` (Windows).
+- Added annotations for _nullable reference types_.
 - Package: Embed icon (fixed _NuGet Warning NU5048_), keep fallback icon URL.
 
 ## v0.7.0 (2020-04-03)

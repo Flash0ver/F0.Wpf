@@ -17,12 +17,12 @@ namespace F0.Windows.Data
 			Converters = new Collection<IValueConverter>();
 		}
 
-		object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
+		object? IValueConverter.Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
 		{
 			return Converters.Aggregate(value, (current, converter) => converter.Convert(current, targetType, parameter, culture));
 		}
 
-		object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+		object? IValueConverter.ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
 		{
 			return Converters.Reverse().Aggregate(value, (current, converter) => converter.ConvertBack(current, targetType, parameter, culture));
 		}

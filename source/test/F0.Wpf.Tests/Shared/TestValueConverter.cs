@@ -6,7 +6,7 @@ namespace F0.Tests.Shared
 {
 	internal sealed class TestValueConverter : IValueConverter
 	{
-		internal string Text { get; }
+		internal string? Text { get; }
 
 		public TestValueConverter()
 		{

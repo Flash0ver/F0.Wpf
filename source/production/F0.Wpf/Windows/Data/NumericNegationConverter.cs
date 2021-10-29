@@ -24,17 +24,17 @@ namespace F0.Windows.Data
 			{ typeof(BigInteger), new Converter<object, object>(NegateBigInteger) },
 		};
 
-		object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
+		object? IValueConverter.Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
 		{
 			return Negate(value);
 		}
 
-		object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+		object? IValueConverter.ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
 		{
 			return Negate(value);
 		}
 
-		private static object Negate(object value)
+		private static object? Negate(object? value)
 		{
 			if (value is null)
 			{
@@ -43,7 +43,7 @@ namespace F0.Windows.Data
 
 			Type type = value.GetType();
 
-			if (converters.TryGetValue(type, out Converter<object, object> converter))
+			if (converters.TryGetValue(type, out Converter<object, object>? converter))
 			{
 				return converter.Invoke(value);
 			}
@@ -133,7 +133,7 @@ namespace F0.Windows.Data
 
 		private static object NegateBigInteger(object value)
 		{
-			var integral = (BigInteger)value;
+			BigInteger integral = (BigInteger)value;
 			BigInteger negation = -integral;
 			return negation;
 		}
