@@ -1,0 +1,8 @@
+<Project>
+
+  <PropertyGroup>
+    <F0Version>0.7.0</F0Version>
+    <F0PackageReleaseNotes>Added converters for both logical and numeric negation.</F0PackageReleaseNotes>
+  </PropertyGroup>
+
+</Project>
