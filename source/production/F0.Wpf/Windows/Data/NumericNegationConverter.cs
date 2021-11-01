@@ -18,6 +18,8 @@ namespace F0.Windows.Data
 			{ typeof(uint), new Converter<object, object>(NegateUInt32)},
 			{ typeof(long), new Converter<object, object>(NegateInt64)},
 			{ typeof(ulong), new Converter<object, object>(NegateUInt64)},
+			{ typeof(nint), new Converter<object, object>(NegateIntPtr)},
+			{ typeof(nuint), new Converter<object, object>(NegateUIntPtr)},
 			{ typeof(float), new Converter<object, object>(NegateSingle)},
 			{ typeof(double), new Converter<object, object>(NegateDouble)},
 			{ typeof(decimal), new Converter<object, object>(NegateDecimal)},
@@ -107,6 +109,20 @@ namespace F0.Windows.Data
 		{
 			ulong integral = (ulong)value;
 			ulong negation = checked(0ul - integral);
+			return negation;
+		}
+
+		private static object NegateIntPtr(object value)
+		{
+			nint native = (nint)value;
+			nint negation = checked(-native);
+			return negation;
+		}
+
+		private static object NegateUIntPtr(object value)
+		{
+			nuint native = (nuint)value;
+			nuint negation = checked(0 - native);
 			return negation;
 		}
 

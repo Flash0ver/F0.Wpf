@@ -4,6 +4,7 @@ CHANGELOG
 ## vNext
 - Added target framework: `.NET 5` (Windows).
 - Added annotations for _nullable reference types_.
+- Changed `Windows.Data.NumericNegationConverter`, additionally negating both _native-sized integers_ (`nint`/`System.IntPtr` and `nuint`/`System.UIntPtr`).
 - Package: Embed icon (fixed _NuGet Warning NU5048_), keep fallback icon URL.
 
 ## v0.7.0 (2020-04-03)

@@ -67,16 +67,16 @@ namespace F0.Tests.Windows.Data
 			Assert.Null(convertBack);
 		}
 
-		[Fact]
-		public void ConvertNotSupported_ThrowsException()
+		[Theory]
+		[MemberData(nameof(NotSupportedTestData))]
+		public void ConvertNotSupported_ThrowsException(object value)
 		{
 			IValueConverter converter = new NumericNegationConverter();
-			string text = String.Empty;
 
-			Exception fromSourceToTarget = Assert.Throws<NotSupportedException>(() => converter.Convert(text, default, default, default));
-			Exception fromTargetToSource = Assert.Throws<NotSupportedException>(() => converter.ConvertBack(text, default, default, default));
+			Exception fromSourceToTarget = Assert.Throws<NotSupportedException>(() => converter.Convert(value, default, default, default));
+			Exception fromTargetToSource = Assert.Throws<NotSupportedException>(() => converter.ConvertBack(value, default, default, default));
 
-			string message = TestTypeConverter.CreateConvertFromException(typeof(NumericNegationConverter), text);
+			string message = TestTypeConverter.CreateConvertFromException(typeof(NumericNegationConverter), value);
 			Assert.Equal(message, fromSourceToTarget.Message);
 			Assert.Equal(message, fromTargetToSource.Message);
 		}
@@ -100,6 +100,13 @@ namespace F0.Tests.Windows.Data
 				new object[] { Int16.MaxValue, (short)-32_767, typeof(short) },
 				new object[] { Int32.MaxValue, -Int32.MaxValue, typeof(int) },
 				new object[] { Int64.MaxValue, -Int64.MaxValue, typeof(long) },
+#if HAS_INTPTR_MAXVALUE
+				new object[] { IntPtr.MaxValue, -nint.MaxValue, typeof(nint) },
+#else
+				Environment.Is64BitProcess
+					? new object[] { (nint)Int64.MaxValue, (nint)(-Int64.MaxValue), typeof(nint) }
+					: new object[] { (nint)Int32.MaxValue, (nint)(-Int32.MaxValue), typeof(nint) },
+#endif
 				new object[] { new BigInteger(240), new BigInteger(-240), typeof(BigInteger) },
 			};
 		}
@@ -112,6 +119,13 @@ namespace F0.Tests.Windows.Data
 				new object[] { UInt16.MaxValue },
 				new object[] { UInt32.MaxValue },
 				new object[] { UInt64.MaxValue },
+#if HAS_UINTPTR_MAXVALUE
+				new object[] { UIntPtr.MaxValue },
+#else
+				Environment.Is64BitProcess
+					? new object[] { (nuint)UInt64.MaxValue }
+					: new object[] { (nuint)UInt32.MaxValue },
+#endif
 			};
 		}
 
@@ -137,6 +151,14 @@ namespace F0.Tests.Windows.Data
 				new object[] { 1u },
 				new object[] { Int64.MinValue },
 				new object[] { 1ul },
+#if HAS_INTPTR_MINVALUE
+				new object[] { IntPtr.MinValue },
+#else
+				Environment.Is64BitProcess
+					? new object[] { (nint)Int64.MinValue }
+					: new object[] { (nint)Int32.MinValue },
+#endif
+				new object[] { (nuint)1 },
 			};
 		}
 
@@ -148,6 +170,7 @@ namespace F0.Tests.Windows.Data
 				new object[] { (short)1, (short)-1, typeof(short) },
 				new object[] { 1, -1, typeof(int) },
 				new object[] { 1L, -1L, typeof(long) },
+				new object[] { (nint)1, -(nint)1, typeof(IntPtr) },
 				new object[] { 1.0f, -1.0f, typeof(float) },
 				new object[] { 1.0, -1.0, typeof(double) },
 				new object[] { Decimal.One, Decimal.MinusOne, typeof(decimal) },
@@ -167,6 +190,14 @@ namespace F0.Tests.Windows.Data
 				new object[] { default(uint), UInt32.MinValue, typeof(uint) },
 				new object[] { default(long), 0L, typeof(long) },
 				new object[] { default(ulong), UInt64.MinValue, typeof(ulong) },
+				new object[] { default(nint), IntPtr.Zero, typeof(nint) },
+#if HAS_UINTPTR_MINVALUE
+				new object[] { default(nuint), UIntPtr.MinValue, typeof(nuint) },
+#else
+				Environment.Is64BitProcess
+					? new object[] { default(nuint), (nuint)UInt64.MinValue, typeof(nuint) }
+					: new object[] { default(nuint), (nuint)UInt32.MinValue, typeof(nuint) },
+#endif
 				new object[] { default(float), 0.0f, typeof(float) },
 				new object[] { default(double), 0.0, typeof(double) },
 				new object[] { default(decimal), Decimal.Zero, typeof(decimal) },
@@ -198,6 +229,23 @@ namespace F0.Tests.Windows.Data
 			{
 				new object[] { Single.NaN, -Single.NaN, typeof(float) },
 				new object[] { Double.NaN, -Double.NaN, typeof(double) },
+			};
+		}
+
+		public static IEnumerable<object[]> NotSupportedTestData()
+		{
+			return new object[][]
+			{
+				new object[] { new object() },
+				new object[] { String.Empty },
+#if HAS_HALF
+				new object[] { Half.MinValue },
+				new object[] { Half.MaxValue },
+				new object[] { Half.Epsilon },
+				new object[] { Half.NegativeInfinity },
+				new object[] { Half.PositiveInfinity },
+				new object[] { Half.NaN },
+#endif
 			};
 		}
 	}
