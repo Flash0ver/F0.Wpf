@@ -1,8 +1,10 @@
 <Project>
 
   <PropertyGroup>
-    <F0Version>0.7.0</F0Version>
-    <F0PackageReleaseNotes>Added converters for both logical and numeric negation.</F0PackageReleaseNotes>
+    <F0Version>0.8.0</F0Version>
+    <F0PackageReleaseNotes>- Annotated APIs for nullable reference types
+- Added target framework: .NET 5 (Windows 7.0 or greater)
+- Changed converter for numeric negation to support native-sized integers</F0PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
