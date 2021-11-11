@@ -171,10 +171,10 @@ namespace F0.Tests.Windows.Data
 				new object[] { 1, -1, typeof(int) },
 				new object[] { 1L, -1L, typeof(long) },
 				new object[] { (nint)1, -(nint)1, typeof(IntPtr) },
+				new object[] { BigInteger.One, BigInteger.MinusOne, typeof(BigInteger) },
 				new object[] { 1.0f, -1.0f, typeof(float) },
 				new object[] { 1.0, -1.0, typeof(double) },
 				new object[] { Decimal.One, Decimal.MinusOne, typeof(decimal) },
-				new object[] { BigInteger.One, BigInteger.MinusOne, typeof(BigInteger) },
 			};
 		}
 
@@ -198,10 +198,10 @@ namespace F0.Tests.Windows.Data
 					? new object[] { default(nuint), (nuint)UInt64.MinValue, typeof(nuint) }
 					: new object[] { default(nuint), (nuint)UInt32.MinValue, typeof(nuint) },
 #endif
+				new object[] { default(BigInteger), BigInteger.Zero, typeof(BigInteger) },
 				new object[] { default(float), 0.0f, typeof(float) },
 				new object[] { default(double), 0.0, typeof(double) },
 				new object[] { default(decimal), Decimal.Zero, typeof(decimal) },
-				new object[] { default(BigInteger), BigInteger.Zero, typeof(BigInteger) },
 			};
 		}
 

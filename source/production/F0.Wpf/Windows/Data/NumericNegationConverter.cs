@@ -20,10 +20,10 @@ namespace F0.Windows.Data
 			{ typeof(ulong), new Converter<object, object>(NegateUInt64)},
 			{ typeof(nint), new Converter<object, object>(NegateIntPtr)},
 			{ typeof(nuint), new Converter<object, object>(NegateUIntPtr)},
+			{ typeof(BigInteger), new Converter<object, object>(NegateBigInteger) },
 			{ typeof(float), new Converter<object, object>(NegateSingle)},
 			{ typeof(double), new Converter<object, object>(NegateDouble)},
 			{ typeof(decimal), new Converter<object, object>(NegateDecimal)},
-			{ typeof(BigInteger), new Converter<object, object>(NegateBigInteger) },
 		};
 
 		object? IValueConverter.Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
@@ -126,6 +126,13 @@ namespace F0.Windows.Data
 			return negation;
 		}
 
+		private static object NegateBigInteger(object value)
+		{
+			BigInteger integral = (BigInteger)value;
+			BigInteger negation = -integral;
+			return negation;
+		}
+
 		private static object NegateSingle(object value)
 		{
 			float real = (float)value;
@@ -144,13 +151,6 @@ namespace F0.Windows.Data
 		{
 			decimal real = (decimal)value;
 			decimal negation = Decimal.Negate(real);
-			return negation;
-		}
-
-		private static object NegateBigInteger(object value)
-		{
-			BigInteger integral = (BigInteger)value;
-			BigInteger negation = -integral;
 			return negation;
 		}
 	}
