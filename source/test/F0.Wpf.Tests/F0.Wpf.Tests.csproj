@@ -4,7 +4,6 @@
     <TargetFrameworks>net5.0-windows;netcoreapp3.1;net472</TargetFrameworks>
     <AssemblyName>F0.Wpf.Tests</AssemblyName>
     <RootNamespace>F0.Tests</RootNamespace>
-    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1' Or '$(TargetFramework)' == 'net472'">
